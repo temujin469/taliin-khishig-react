@@ -12,7 +12,7 @@ const usersRoutes = require("./routes/users");
 const uploadRoutes = require("./routes/upload");
 
 // Аппын тохиргоог process.env рүү ачаалах
-dotenv.config({ path: "./config/config.env" });
+dotenv.config({ path: "./config/.env.local" });
 
 const app = express();
 
