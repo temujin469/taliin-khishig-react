@@ -2,17 +2,30 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import baseUrl from "../utils/axios";
+import NewsCard from "./NewsCard";
 
-function News() {
+function NewsSection() {
+  const { data, isLoading, error } = useQuery(["all-news"], async () => {
+    const res = await baseUrl.get("/news");
+    return res.data;
+  });
+
+  const allNews = data?.data;
+
   return (
     //  {/* <!-- news-section start--> */}
     <div className="lg:container lg:mx-auto px-5  md:px-40">
       <div className="flex flex-col md:flex-row items-center gap-5 pt-16">
         <p className="text-xl font-semibold">Latest news</p>
-        <p className="py-2 px-5 rounded-lg bg-orange-400/40 flex items-center text-center text-[#FE7200]">
+        <Link
+          to="news"
+          className="py-2 px-5 rounded-lg bg-orange-400/40 flex items-center text-center text-[#FE7200]"
+        >
           More news
           <FiIcons.FiChevronRight className="text-[#FE7200] text-[23px] pl-1" />
-        </p>
+        </Link>
       </div>
       <div className="relative">
         {
@@ -33,44 +46,43 @@ function News() {
                 slidesPerView: 2,
                 spaceBetween: 20,
               },
-              1536: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
               1280: {
                 slidesPerView: 3,
                 spaceBetween: 20,
               },
             }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
           >
-            {Array(5)
-              .fill(null)
-              .map((_, i) => (
-                <SwiperSlide key={i}>
-                  <div className=" rounded-xl overflow-hidden cursor-pointer">
+            {!isLoading && !error ? (
+              allNews.map((news) => (
+                <SwiperSlide key={news._id}>
+                  {/* <div className="overflow-hidden cursor-pointer">
                     <img
-                      src="/newsImage/news1.png"
-                      className="w-full h-[150px] object-cover"
+                      src={news.photo}
+                      className="w-full h-[180px] object-cover rounded-xl"
                       alt=""
                     />
                     <div className="py-5">
                       <p className="font-semibold text-[15px] text-gray-600 h-[50px] overflow-hidden">
-                        “Taliin Khishig Mining LLC: we produce is essential for
-                        the world to continue...”
+                        {news.title}
                       </p>
 
-                      <Link to="#" className="flex items-end">
+                      <Link
+                        to={`/news/${news.slug}`}
+                        className="flex items-end"
+                      >
                         <p className="text-primary  hover:pr-2 duration-200">
                           See more
                         </p>
                         <FiIcons.FiChevronRight className="text-[#FE7200] text-[23px] pl-1" />
                       </Link>
                     </div>
-                  </div>
+                  </div> */}
+                  <NewsCard news={news} />
                 </SwiperSlide>
-              ))}
+              ))
+            ) : (
+              <p>loading...</p>
+            )}
           </Swiper>
         }
         <div className="hover:pr-3 transition-all duration-200 flex button-prev l-0 md:right-20 justify-center items-center absolute rounded-full border-gray-700 top-[-39px] border-2 w-10 h-10 text-gray-700 z-20">
@@ -85,4 +97,4 @@ function News() {
   );
 }
 
-export default News;
+export default NewsSection;

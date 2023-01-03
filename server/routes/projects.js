@@ -8,7 +8,7 @@ const {
   createProject,
   updateProject,
   deleteProject,
-} = require("../controller/categories");
+} = require("../controller/projects");
 
 //"/api/v1/projects"
 router

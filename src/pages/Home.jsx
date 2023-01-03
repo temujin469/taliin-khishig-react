@@ -2,7 +2,7 @@ import React from "react";
 import BusinessFacts from "../components/BusinessFacts";
 import Greeting from "../components/Greeting";
 import InfoSection from "../components/InfoSection";
-import News from "../components/News";
+import NewsSection from "../components/NewsSection";
 import Partners from "../components/Partners";
 import Projects from "../components/Projects";
 import Services from "../components/Services";
@@ -19,7 +19,7 @@ function Home() {
       <Projects />
       <BusinessFacts />
       <Partners />
-      <News />
+      <NewsSection />
       <Subscribe />
     </div>
   );

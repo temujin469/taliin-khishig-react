@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { slugify } = require("transliteration");
 
 const ProjectSchema = new mongoose.Schema(
   {
@@ -38,8 +39,18 @@ const ProjectSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-module.exports = mongoose.model("Project", ProjectSchema);
+ProjectSchema.pre("save", function (next) {
+  this.slug = slugify(this.title);
+  next();
+});
+
+module.exports = mongoose.model("Projects", ProjectSchema);

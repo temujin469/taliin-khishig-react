@@ -6,7 +6,7 @@ const paginate = require("../utils/paginate");
 // api/v1/Newss
 exports.getNewss = asyncHandler(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 5;
+  const limit = parseInt(req.query.limit) || 6;
   const sort = req.query.sort;
   const select = req.query.select;
 
@@ -15,6 +15,7 @@ exports.getNewss = asyncHandler(async (req, res, next) => {
   const pagination = await paginate(page, limit, News);
 
   const newss = await News.find(req.query, select)
+    .populate({ path: "createUser", select: "_id name role" })
     .sort(sort)
     .skip(pagination.start - 1)
     .limit(limit);
@@ -33,11 +34,14 @@ exports.getUserNewss = asyncHandler(async (req, res, next) => {
 });
 
 exports.getNews = asyncHandler(async (req, res, next) => {
-  const news = await News.findById(req.params.id);
+  const news = await News.findOne({ slug: req.params.id });
 
   if (!news) {
     throw new MyError(req.params.id + " ID-тэй мэдээ байхгүй байна.", 404);
   }
+
+  news.review++;
+  news.save();
 
   res.status(200).json({
     success: true,

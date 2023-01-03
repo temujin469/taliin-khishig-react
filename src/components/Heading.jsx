@@ -7,6 +7,11 @@ function Heading({ title, subTitle, img }) {
   const breadcrumbNameMap = {
     "/about-us": "About Us",
     "/our-team": "Our team",
+    "/service": "Service",
+    "/news": "News",
+    "/service/rail-logistic": "Rail logistic",
+    "/service/freight-transportation": "Freight transportation",
+    "/service/foreign-trade": "Foreign trade",
   };
 
   const location = useLocation();
@@ -17,7 +22,10 @@ function Heading({ title, subTitle, img }) {
     const url = `/${pathSnippets.slice(0, index + 1).join("/")}`;
     return (
       <Breadcrumb.Item key={url}>
-        <Link to={url} className=" text-[16px] p-1 h-auto">
+        <Link
+          to={url === "/service" ? "#" : url}
+          className=" text-[16px] p-1 h-auto"
+        >
           {breadcrumbNameMap[url]}
         </Link>
       </Breadcrumb.Item>
@@ -47,7 +55,10 @@ function Heading({ title, subTitle, img }) {
             <p className="font-semibold text-gray-600">{subTitle}</p>
           </div>
           <div className="col-span-1 p-5">
-            <img src={img} className="w-full block h-full object-cover" />
+            <img
+              src={img}
+              className="w-full block h-full object-cover rounded-xl"
+            />
           </div>
         </div>
       </div>

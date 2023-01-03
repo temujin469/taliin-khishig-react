@@ -5,6 +5,8 @@ const connectDB = require("./config/db");
 const colors = require("colors");
 const errorHandler = require("./middleware/error");
 const logger = require("./middleware/logger");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 // Router оруулж ирэх
 const projectsRoutes = require("./routes/projects");
 const newsRoutes = require("./routes/news");
@@ -22,7 +24,7 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3001"],
+    origin: ["http://127.0.0.1:3001"],
     credentials: true,
   })
 );
@@ -40,9 +42,9 @@ const server = app.listen(
   console.log(`Express сэрвэр ${process.env.PORT} порт дээр аслаа... `.rainbow)
 );
 
-process.on("unhandledRejection", (err, promise) => {
-  console.log(`Алдаа гарлаа : ${err.message}`.underline.red.bold);
-  server.close(() => {
-    process.exit(1);
-  });
-});
+// process.on("unhandledRejection", (err, promise) => {
+//   console.log(`Алдаа гарлаа : ${err.message}`.underline.red.bold);
+//   server.close(() => {
+//     process.exit(1);
+//   });
+// });

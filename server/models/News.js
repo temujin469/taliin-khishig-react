@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
+const { slugify } = require("transliteration");
 
 const NewsSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "Номын нэрийг оруулна уу"],
+      required: [true, "мэдээний нэрийг оруулна уу"],
       unique: true,
       trim: true,
-      maxlength: [250, "Номын нэрний урт дээд тал нь 250 тэмдэгт байх ёстой."],
+      maxlength: [
+        250,
+        "мэдээний нэрний урт дээд тал нь 250 тэмдэгт байх ёстой.",
+      ],
     },
     photo: {
       type: String,
@@ -15,16 +19,20 @@ const NewsSchema = new mongoose.Schema(
     },
     content: {
       type: String,
-      required: [true, "Номын тайлбарыг оруулна уу"],
+      required: [true, "мэдээний тайлбарыг оруулна уу"],
       trim: true,
-      maxlength: [5000, "Номын нэрний урт дээд тал нь 20 тэмдэгт байх ёстой."],
+      maxlength: [
+        5000,
+        "мэдээний нэрний урт дээд тал нь 20 тэмдэгт байх ёстой.",
+      ],
     },
     createUser: {
       type: mongoose.Schema.ObjectId,
-      ref: "User",
+      ref: "Users",
     },
+    tags: [{ type: String }],
     review: {
-      type: number,
+      type: Number,
       default: 0,
     },
     updateUser: {
@@ -34,6 +42,10 @@ const NewsSchema = new mongoose.Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+    slug: {
+      type: String,
+      unique: true,
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
@@ -64,5 +76,10 @@ const NewsSchema = new mongoose.Schema(
 // BookSchema.post("remove", function () {
 //   this.constructor.computeCategoryAveragePrice(this.category);
 // });
+
+NewsSchema.pre("save", function (next) {
+  this.slug = slugify(this.title);
+  next();
+});
 
 module.exports = mongoose.model("News", NewsSchema);

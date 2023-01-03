@@ -32,8 +32,6 @@ function Projects() {
                 spaceBetween: 20,
               },
             }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
           >
             {Array(5)
               .fill(null)

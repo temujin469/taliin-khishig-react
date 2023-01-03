@@ -10,6 +10,25 @@
   font-family: "Manrope", sans-serif;
 }
 
+.my-container {
+  @apply mx-5 sm:px-10 lg:px-20 xl:px-0 mb-10 md:mx-auto max-w-[1100px];
+}
+
+.heading-xl {
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800;
+}
+.heading-lg {
+  @apply text-xl md:text-2xl lg:text-3xl font-bold text-gray-800;
+}
+
+.heading-md {
+  @apply font-semibold text-[18px] md:text-[19px] lg:text-xl text-gray-800;
+}
+
+.heading-sm {
+  @apply font-medium text-[15px] md:text-lg lg:text-xl xl:text-xl text-gray-800;
+}
+
 * {
   padding: 0;
   margin: 0;

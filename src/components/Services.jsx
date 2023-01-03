@@ -18,7 +18,10 @@ function Services() {
             many of our products will help make the transition to cleaner energy
             possible
           </p>
-          <Link to="#" className="hover:pl-3  transition-all duration-200">
+          <Link
+            to="/service/rail-logistic"
+            className="hover:pl-3  transition-all duration-200"
+          >
             <a>
               <FiIcons.FiArrowRight className="text-[#FE7200] text-xl" />
             </a>
@@ -36,7 +39,10 @@ function Services() {
             many of our products will help make the transition to cleaner energy
             possible
           </p>
-          <Link to="#" className="hover:pl-3  transition-all duration-200">
+          <Link
+            to="/service/mining"
+            className="hover:pl-3  transition-all duration-200"
+          >
             <a>
               <FiIcons.FiArrowRight className="text-[#FE7200] text-xl" />
             </a>
@@ -55,7 +61,10 @@ function Services() {
             possible
           </p>
 
-          <Link to="#" className="hover:pl-3  transition-all duration-200">
+          <Link
+            to="/service/freight-transportation"
+            className="hover:pl-3  transition-all duration-200"
+          >
             <a>
               <FiIcons.FiArrowRight className="text-[#FE7200] text-xl" />
             </a>
@@ -74,7 +83,10 @@ function Services() {
             possible
           </p>
 
-          <Link to="#" className="hover:pl-3  transition-all duration-200">
+          <Link
+            to="/service/foreign-trade"
+            className="hover:pl-3  transition-all duration-200"
+          >
             <a>
               <FiIcons.FiArrowRight className="text-[#FE7200] text-xl" />
             </a>
