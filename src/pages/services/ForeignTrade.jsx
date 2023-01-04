@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../../components/Heading";
 
-function ForeignTrade() {
+const ForeignTrade = () => {
   return (
     <div>
       <Heading
@@ -39,6 +39,6 @@ function ForeignTrade() {
       </div>
     </div>
   );
-}
+};
 
 export default ForeignTrade;
