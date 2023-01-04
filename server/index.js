@@ -24,7 +24,10 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://127.0.0.1:3001"],
+    origin: [
+      "http://127.0.0.1:3001",
+      "https://taliin-khishig-react.vercel.app",
+    ],
     credentials: true,
   })
 );
