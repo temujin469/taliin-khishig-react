@@ -14,7 +14,7 @@ const usersRoutes = require("./routes/users");
 const uploadRoutes = require("./routes/upload");
 
 // Аппын тохиргоог process.env рүү ачаалах
-dotenv.config({ path: "./config/.env" });
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const app = express();
 
