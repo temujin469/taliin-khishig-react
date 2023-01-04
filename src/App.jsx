@@ -4,7 +4,7 @@ import AdminLayout from "./components/AdminLayout";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AboutUs from "./pages/AboutUs";
-import Dashboard from "./pages/admin/dashboard";
+import Dashboard from "./pages/admin/Dashboard";
 import Login from "./pages/admin/Login";
 import Register from "./pages/admin/Register";
 import Home from "./pages/Home";
