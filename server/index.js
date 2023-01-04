@@ -14,7 +14,7 @@ const usersRoutes = require("./routes/users");
 const uploadRoutes = require("./routes/upload");
 
 // Аппын тохиргоог process.env рүү ачаалах
-dotenv.config({ path: "../.env" });
+dotenv.config({ path: __dirname + "/config/.env" });
 
 const app = express();
 
@@ -22,15 +22,7 @@ connectDB();
 
 // Body parser
 app.use(express.json());
-app.use(
-  cors({
-    origin: [
-      "http://127.0.0.1:3001",
-      "https://taliin-khishig-react.vercel.app",
-    ],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(cookieParser());
 app.use(logger);
 app.use("/api/v1/projects", projectsRoutes);
