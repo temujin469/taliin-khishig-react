@@ -2,14 +2,14 @@ import React from "react";
 import { useQuery } from "react-query";
 import { BsCalendarDate } from "react-icons/bs";
 // import { Link } from "react-router-dom";
-import baseUrl from "../utils/axios";
 import moment from "moment";
+import { getLatestNews } from "../api/news";
 
 function LatestNews() {
-  const { data, isLoading, error } = useQuery(["all-news"], async () => {
-    const res = await baseUrl.get("/news");
-    return res.data;
-  });
+  const { data, isLoading, error } = useQuery(
+    ["all-news", { Latest: true }],
+    getLatestNews
+  );
 
   const allNews = data?.data;
 

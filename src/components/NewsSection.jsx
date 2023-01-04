@@ -3,14 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-import baseUrl from "../utils/axios";
 import NewsCard from "./NewsCard";
+import { getLatestNews } from "../api/news";
 
 function NewsSection() {
-  const { data, isLoading, error } = useQuery(["all-news"], async () => {
-    const res = await baseUrl.get("/news");
-    return res.data;
-  });
+  const { data, isLoading, error } = useQuery(
+    ["all-news", { latest: true }],
+    getLatestNews
+  );
 
   const allNews = data?.data;
 

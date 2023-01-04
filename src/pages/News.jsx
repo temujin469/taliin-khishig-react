@@ -1,25 +1,24 @@
 import { Pagination } from "antd";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
+import { getAllNews } from "../api/news";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Heading from "../components/Heading";
 import NewsCard from "../components/NewsCard";
-import baseUrl from "../utils/axios";
 
 export default function News() {
   const [page, setPage] = useState(1);
-  const { data, isLoading, error } = useQuery(["all-news", page], async () => {
-    const res = await baseUrl.get(`/news?page=${page}`);
-    return res.data;
-  });
+  const { data, isLoading, error } = useQuery(["all-news", page], () =>
+    getAllNews(page)
+  );
 
   const allNews = data?.data;
   const pagination = data?.pagination;
   useEffect(() => {
     // 👇️ scroll to top on
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+  }, [page]);
   console.log(data?.pagination?.total);
   return (
     <div>
