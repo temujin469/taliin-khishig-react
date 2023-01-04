@@ -14,7 +14,7 @@ const usersRoutes = require("./routes/users");
 const uploadRoutes = require("./routes/upload");
 
 // Аппын тохиргоог process.env рүү ачаалах
-dotenv.config({ path: "./config/.env.local" });
+dotenv.config({ path: "./config/.env" });
 
 const app = express();
 
@@ -39,6 +39,14 @@ app.use("/api/v1/users", usersRoutes);
 app.use("/api/v1/upload", uploadRoutes);
 
 app.use(errorHandler);
+
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static(path.resolve(__dirname, "../dist", "assets")));
+
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist", "index.html"));
+  });
+}
 
 app.listen(
   process.env.PORT,
