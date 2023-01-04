@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./app.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { AuthContextProvider } from "./contexts/authContext";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 const queryClient = new QueryClient();
 
