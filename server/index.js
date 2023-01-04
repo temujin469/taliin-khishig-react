@@ -14,7 +14,7 @@ const usersRoutes = require("./routes/users");
 const uploadRoutes = require("./routes/upload");
 
 // Аппын тохиргоог process.env рүү ачаалах
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
+dotenv.config({ path: "../.env" });
 
 const app = express();
 
@@ -48,10 +48,9 @@ if (process.env.NODE_ENV == "production") {
   });
 }
 
-app.listen(
-  process.env.PORT,
-  console.log(`Express сэрвэр ${process.env.PORT} порт дээр аслаа... `.rainbow)
-);
+app.listen(process.env.PORT, () => {
+  console.log(`Express сэрвэр ${process.env.PORT} порт дээр аслаа... `.rainbow);
+});
 
 // process.on("unhandledRejection", (err, promise) => {
 //   console.log(`Алдаа гарлаа : ${err.message}`.underline.red.bold);
