@@ -37,7 +37,7 @@ app.use("/api/v1/upload", uploadRoutes);
 
 app.use(errorHandler);
 
-const server = app.listen(
+app.listen(
   process.env.PORT,
   console.log(`Express сэрвэр ${process.env.PORT} порт дээр аслаа... `.rainbow)
 );
@@ -48,3 +48,5 @@ const server = app.listen(
 //     process.exit(1);
 //   });
 // });
+
+module.exports = app;

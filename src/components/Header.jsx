@@ -53,7 +53,11 @@ function Header({ title, description, bgImage, height }) {
 
   return (
     <MyHeader>
-      <div className={`relative ${height ? height : "md:h-[90vh] h-[65vh]"}`}>
+      <div
+        className={`relative ${
+          height ? height.toString() : "md:h-[90vh] h-[65vh]"
+        }`}
+      >
         {/* <!-- navbar start --> */}
         <nav className="lg:container shadow-md block mx-auto fixed top-0 w-full md:static md:shadow-none z-20">
           <div className="nav-row-1 md:flex justify-end items-center hidden h-[50px] border-b bottom-1">
@@ -153,7 +157,7 @@ function Header({ title, description, bgImage, height }) {
           </div>
         </nav>
         {/* <!-- navbar end --> */}
-        <div className={!title && !description && "hidden"}>
+        <div className={!title && !description ? "hidden" : undefined}>
           <div className="text-white lg:px-10 relative top-[60vh] mt-[60px] md:mt-0 md:static md:h-[calc(80vh-150px)] flex flex-col-reverse md:container md:mx-auto">
             <div className="md:max-w-[700px] bg-gradient-to-br from-[#e77021] to-[#f5b062] md:bg-none pb-32 pt-16 px-10 md:px-0 md:pb-16">
               <p className="text-3xl font-semibold mb-10 md:mb-5">{title}</p>
