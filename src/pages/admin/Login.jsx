@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/authContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Login() {
   const { login, currentUser, loading, err } = useContext(AuthContext);
