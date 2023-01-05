@@ -20,8 +20,6 @@ const app = express();
 
 connectDB();
 
-app.use(express.static(path.join(__dirname, "../public")));
-
 // Body parser
 app.use(express.json({ limit: "50mb" }));
 app.use(cors());
