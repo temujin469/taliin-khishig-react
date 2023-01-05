@@ -1,5 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, A11y } from "swiper";
 import * as FiIcons from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -33,6 +34,8 @@ function NewsSection() {
             className="overflow-hidden py-12"
             spaceBetween={20}
             slidesPerView={1}
+            modules={[Navigation, Pagination, A11y]}
+            pagination={{ clickable: true }}
             navigation={{
               nextEl: ".button-next",
               prevEl: ".button-prev",

@@ -1,5 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
+import "swiper/css/autoplay";
 
 const partners = [
   {
@@ -33,9 +35,13 @@ function Partners() {
           <Swiper
             className="flex items-center"
             spaceBetween={20}
+            modules={[Autoplay]}
             slidesPerView={2}
             loop={true}
-            autoplay={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             // autoplay={{
             //   delay: 2500,
             //   disableOnInteraction: false,

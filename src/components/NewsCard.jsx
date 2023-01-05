@@ -12,7 +12,7 @@ export default function NewsCard({ news }) {
       <div className="w-full overflow-hidden h-[210px] rounded-xl">
         <img
           alt="Post thumbnail"
-          src={news.photo}
+          src={`/upload/${news.photo}`}
           className="hover:scale-[1.1] transition-all w-full h-full object-cover cursor-pointer mb-2"
         />
       </div>

@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import baseUrl from "../utils/axios";
+import "react-quill/dist/quill.snow.css";
+import parse from "html-react-parser";
 
 function NewsScreen() {
   const { id } = useParams();
@@ -51,11 +53,11 @@ function NewsScreen() {
                     <div className="w-full overflow-hidden rounded-2xl max-h-[600px] mb-5">
                       <img
                         alt="Post thumbnail"
-                        src={news.photo}
+                        src={`/upload/${news.photo}`}
                         className="transition-all w-full h-full object-cover"
                       />
                     </div>
-                    <div>{news.content}</div>
+                    <div>{parse(news.content)}</div>
                   </div>
                 </div>
                 <div className="col-span-2">

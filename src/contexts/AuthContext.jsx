@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import baseUrl from "../utils/axios";
 // import { signin } from '../api/userApi'
 
@@ -14,8 +14,8 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     setLoading(true);
     try {
-      const response = await baseUrl.post("/users/login", inputs);
-      setCurrentUser(response.data.user);
+      const res = await baseUrl.post("/users/login", inputs);
+      setCurrentUser({ ...res.data.user, token: res.data.token });
       setLoading(false);
     } catch (e) {
       console.log(e);
@@ -26,10 +26,12 @@ export const AuthContextProvider = ({ children }) => {
 
   const logout = () => {
     localStorage.removeItem("user");
+    setCurrentUser(null);
   };
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(currentUser));
+    console.log(currentUser);
   }, [currentUser]);
 
   return (
@@ -38,3 +40,5 @@ export const AuthContextProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+export const useAuthContext = () => useContext(AuthContext);

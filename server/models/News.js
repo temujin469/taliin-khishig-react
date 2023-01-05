@@ -21,10 +21,7 @@ const NewsSchema = new mongoose.Schema(
       type: String,
       required: [true, "мэдээний тайлбарыг оруулна уу"],
       trim: true,
-      maxlength: [
-        5000,
-        "мэдээний нэрний урт дээд тал нь 20 тэмдэгт байх ёстой.",
-      ],
+      maxlength: [1000000, "мэдээний урт хэтэрлээ"],
     },
     createUser: {
       type: mongoose.Schema.ObjectId,

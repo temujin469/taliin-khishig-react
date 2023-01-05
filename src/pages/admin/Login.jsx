@@ -32,7 +32,7 @@ function Login() {
   const navigate = useNavigate();
   useEffect(() => {
     const checkUser = () => {
-      currentUser && navigate("/admin");
+      currentUser && navigate("/admin/dashboard");
     };
     checkUser();
   }, [currentUser]);
@@ -51,12 +51,11 @@ function Login() {
             <input
               type="email"
               // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-              className={`block w-full bg-transparent outline-none border-b-2 py-2 px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
-                errors.email ? "border-red-500" : "border-primary"
+              className={`block w-full bg-transparent rounded-xl outline py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
+                errors.email ? "outline-red-500" : "outline-primary"
               }`}
               {...register("email")}
               placeholder="Имэйл"
-              style={{ transition: "all .15s ease" }}
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-2">
@@ -75,8 +74,8 @@ function Login() {
             <input
               // type="password"
               // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-              className={`block w-full bg-transparent outline-none border-b-2 py-2 px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
-                errors.password ? "border-red-500" : "border-primary"
+              className={`block w-full bg-transparent outline rounded-xl py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
+                errors.password ? "outline-red-500" : "outline-primary"
               }`}
               {...register("password")}
               placeholder="Нууц үг"

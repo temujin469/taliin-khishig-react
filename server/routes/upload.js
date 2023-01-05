@@ -6,7 +6,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../../public/upload");
+    cb(null, "../public/upload");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -15,6 +15,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.route("/").post(upload.single("file"), uploadFile);
+router.route("/").post(upload.single("photo"), uploadFile);
 
 module.exports = router;

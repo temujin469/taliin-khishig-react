@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import AdminLayout from "./components/AdminLayout";
+import AdminLayout from "./components/admin/AdminLayout";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AboutUs from "./pages/AboutUs";
@@ -16,6 +16,13 @@ import RailLogistic from "./pages/services/RailLogistic";
 import NewsScreen from "./pages/NewsScreen";
 import News from "./pages/News";
 import ProjectScreen from "./pages/ProjectScreen";
+
+import "swiper/css/pagination";
+import "swiper/css";
+import AddNews from "./pages/admin/AddNews";
+import AddProject from "./pages/admin/AddProject";
+import EditProject from "./pages/admin/EditProject";
+import EditNews from "./pages/admin/EditNews";
 
 function App() {
   const router = createBrowserRouter([
@@ -74,18 +81,34 @@ function App() {
       ),
       children: [
         {
-          path: "/admin",
+          path: "dashboard",
           element: <Dashboard />,
         },
         {
-          path: "login",
-          element: <Login />,
-        },
-        {
-          path: "register",
+          path: "add-admin",
           element: <Register />,
         },
+        {
+          path: "add-news",
+          element: <AddNews />,
+        },
+        {
+          path: "add-project",
+          element: <AddProject />,
+        },
+        {
+          path: "projects",
+          element: <EditProject />,
+        },
+        {
+          path: "news",
+          element: <EditNews />,
+        },
       ],
+    },
+    {
+      path: "/admin/login",
+      element: <Login />,
     },
   ]);
   return <RouterProvider router={router} />;
