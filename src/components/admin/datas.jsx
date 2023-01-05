@@ -17,7 +17,7 @@ export const links = [
         icon: <FcBarChart />,
       },
       {
-        name: "Оруулсан мэдээ",
+        name: "Нийтэлсэн мэдээ",
         path: "news",
         icon: <FcTodoList />,
       },
@@ -27,7 +27,7 @@ export const links = [
         icon: <FcViewDetails />,
       },
       {
-        name: "Мэдээ оруулах",
+        name: "Мэдээ нийтлэх",
         path: "add-news",
         icon: <FcNews />,
       },

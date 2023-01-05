@@ -9,8 +9,8 @@ const ProjectSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       maxlength: [
-        50,
-        "Прожектийн title урт дээд тал нь 50 тэмдэгт байх ёстой.",
+        200,
+        "Прожектийн title урт дээд тал нь 200 тэмдэгт байх ёстой.",
       ],
     },
     subTitle: {
@@ -23,11 +23,11 @@ const ProjectSchema = new mongoose.Schema(
         "Прожектийн subtitle урт дээд тал нь 200 тэмдэгт байх ёстой.",
       ],
     },
-    description: {
+    content: {
       type: String,
-      required: [true, "Прожектийн тайлбарыг заавал оруулах ёстой."],
+      required: [true, "Прожектийн агуулга заавал оруулах ёстой."],
       maxlength: [
-        500,
+        100000,
         "Прожектийн тайлбарын урт дээд тал нь 500 тэмдэгт байх ёстой.",
       ],
     },
@@ -41,7 +41,6 @@ const ProjectSchema = new mongoose.Schema(
     },
     slug: {
       type: String,
-      required: true,
       unique: true,
     },
   },

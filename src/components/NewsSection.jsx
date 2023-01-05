@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import NewsCard from "./NewsCard";
 import { getLatestNews } from "../api/news";
+import SkeletonCard from "./SkeletonCard";
 
 function NewsSection() {
   const { data, isLoading, error } = useQuery(
@@ -29,65 +30,49 @@ function NewsSection() {
         </Link>
       </div>
       <div className="relative">
-        {
-          <Swiper
-            className="overflow-hidden py-12"
-            spaceBetween={20}
-            slidesPerView={1}
-            modules={[Navigation, Pagination, A11y]}
-            pagination={{ clickable: true }}
-            navigation={{
-              nextEl: ".button-next",
-              prevEl: ".button-prev",
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              1280: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-            }}
-          >
-            {!isLoading && !error ? (
-              allNews.map((news) => (
-                <SwiperSlide key={news._id}>
-                  {/* <div className="overflow-hidden cursor-pointer">
-                    <img
-                      src={news.photo}
-                      className="w-full h-[180px] object-cover rounded-xl"
-                      alt=""
-                    />
-                    <div className="py-5">
-                      <p className="font-semibold text-[15px] text-gray-600 h-[50px] overflow-hidden">
-                        {news.title}
-                      </p>
-
-                      <Link
-                        to={`/news/${news.slug}`}
-                        className="flex items-end"
-                      >
-                        <p className="text-primary  hover:pr-2 duration-200">
-                          See more
-                        </p>
-                        <FiIcons.FiChevronRight className="text-[#FE7200] text-[23px] pl-1" />
-                      </Link>
-                    </div>
-                  </div> */}
-                  <NewsCard news={news} />
+        <Swiper
+          className="overflow-hidden py-12"
+          spaceBetween={20}
+          slidesPerView={1}
+          modules={[Navigation, Pagination, A11y]}
+          pagination={{ clickable: true }}
+          navigation={{
+            nextEl: ".button-next",
+            prevEl: ".button-prev",
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1280: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {isLoading ? (
+            Array(5)
+              .fill(null)
+              .map((_, i) => (
+                <SwiperSlide key={i}>
+                  <SkeletonCard />
                 </SwiperSlide>
               ))
-            ) : (
-              <p>loading...</p>
-            )}
-          </Swiper>
-        }
+          ) : error ? (
+            <Alert message={error} type="error" />
+          ) : (
+            allNews.map((news) => (
+              <SwiperSlide key={news._id}>
+                <NewsCard news={news} />
+              </SwiperSlide>
+            ))
+          )}
+        </Swiper>
         <div className="hover:pr-3 transition-all duration-200 flex button-prev l-0 md:right-20 justify-center items-center absolute rounded-full border-gray-700 top-[-39px] border-2 w-10 h-10 text-gray-700 z-20">
           <FiIcons.FiChevronLeft className=" text-[23px]" />
         </div>

@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsCardChecklist } from "react-icons/bs";
-import { RiNotification3Line } from "react-icons/ri";
+import { BsCardChecklist, BsPieChart } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import UserProfile from "./UserProfile";
 import { FiEdit } from "react-icons/fi";
 import { useAdminContext } from "../../contexts/AdminStateContext";
 import { Tooltip } from "antd";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
-  <Tooltip title={title} placement="bottom">
+  <Tooltip title={title} placement="bottom" color={color}>
     <button
       type="button"
-      onClick={() => customFunc()}
+      onClick={customFunc}
       style={{ color }}
       className="relative text-xl rounded-full p-3 hover:bg-light-gray"
     >
@@ -59,8 +59,10 @@ const AdminNavbar = () => {
 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
+  const navigate = useNavigate();
+
   return (
-    <div className="flex shadow-md sm:shadow-none justify-between p-2 md:ml-6 md:mr-6 relative">
+    <div className="flex shadow-md bg-white sm:bg-transparent sm:shadow-none justify-between p-2 md:ml-6 md:mr-6 relative">
       <NavButton
         title="Цэс"
         customFunc={handleActiveMenu}
@@ -69,26 +71,24 @@ const AdminNavbar = () => {
       />
       <div className="flex">
         <NavButton
-          title="Байр сууц бүртгэх"
-          customFunc={() => handleClick("cart")}
+          title="Мэдээ нийтлэх"
+          customFunc={() => navigate("/admin/add-news")}
           color={currentColor}
           icon={<FiEdit />}
         />
         <NavButton
-          title="Захиалга"
-          dotColor="#03C9D7"
-          customFunc={() => handleClick("chat")}
+          title="Төсөл оруулах"
+          customFunc={() => navigate("/admin/add-project")}
           color={currentColor}
           icon={<BsCardChecklist className="text-[22px]" />}
         />
         <NavButton
-          title="Мэдэгдэл"
-          dotColor="rgb(254, 201, 15)"
+          title="Хураангуй"
           customFunc={() => handleClick("notification")}
           color={currentColor}
-          icon={<RiNotification3Line />}
+          icon={<BsPieChart />}
         />
-        <Tooltip title="Профайл" placement="bottom">
+        <Tooltip title="Профайл" placement="bottom" color={currentColor}>
           <div
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
             onClick={() => handleClick("userProfile")}
@@ -106,10 +106,6 @@ const AdminNavbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </Tooltip>
-
-        {/* {isClicked.cart && <Cart />} */}
-        {/* {isClicked.chat && <Chat />} */}
-        {/* {isClicked.notification && <Notification />} */}
         {isClicked.userProfile && <UserProfile />}
       </div>
     </div>

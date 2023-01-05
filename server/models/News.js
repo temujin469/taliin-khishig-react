@@ -9,7 +9,7 @@ const NewsSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       maxlength: [
-        250,
+        200,
         "мэдээний нэрний урт дээд тал нь 250 тэмдэгт байх ёстой.",
       ],
     },

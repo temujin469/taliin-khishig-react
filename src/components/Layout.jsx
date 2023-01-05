@@ -1,3 +1,4 @@
+import { FloatButton } from "antd";
 import React, { useEffect } from "react";
 import { Outlet, useLocation, useNavigation } from "react-router-dom";
 import Footer from "./Footer";
@@ -19,6 +20,7 @@ function Layout() {
       />
       <Outlet />
       <Footer />
+      <FloatButton.BackTop />
     </div>
   );
 }

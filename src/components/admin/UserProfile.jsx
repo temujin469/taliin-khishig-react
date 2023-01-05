@@ -4,6 +4,7 @@ import { BsCurrencyDollar } from "react-icons/bs";
 import { useAdminContext } from "../../contexts/AdminStateContext";
 import { useAuthContext } from "../../contexts/AuthContext";
 import MyButton from "./MyButton";
+import { useNavigate } from "react-router-dom";
 
 const userProfileData = [
   {
@@ -26,8 +27,10 @@ const UserProfile = () => {
   const { currentColor } = useAdminContext();
   const { currentUser, logout } = useAuthContext();
 
+  const navigate = useNavigate();
+
   return (
-    <div className="z-40 shadow-xl absolute top-0 right-0 w-full h-screen sm:h-auto  sm:right-1 sm:top-16  sm:w-96 bg-white dark:bg-[#42464D] p-8">
+    <div className="z-40 shadow-xl rounded-none sm:rounded-xl absolute top-0 right-0 w-full h-screen sm:h-auto  sm:right-1 sm:top-16  sm:w-96 bg-white dark:bg-[#42464D] p-8">
       <div className="flex justify-between items-center">
         <p className="font-semibold text-lg dark:text-gray-200">
           Таний профайл
@@ -90,9 +93,12 @@ const UserProfile = () => {
           color="white"
           bgColor={currentColor}
           text="Гарах"
-          borderRadius="10px"
+          borderRadius="8px"
           width="full"
-          onPress={logout}
+          onPress={() => {
+            logout();
+            navigate("/");
+          }}
         />
       </div>
     </div>

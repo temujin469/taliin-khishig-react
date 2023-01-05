@@ -7,12 +7,9 @@ const paginate = require("../utils/paginate");
 exports.register = asyncHandler(async (req, res, next) => {
   const user = await User.create(req.body);
 
-  const token = user.getJsonWebToken();
-
   res.status(200).json({
     success: true,
-    token,
-    user: user,
+    message: "Амжилттай бүртгэгдлээ",
   });
 });
 

@@ -5,8 +5,7 @@ import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AboutUs from "./pages/AboutUs";
 import Dashboard from "./pages/admin/Dashboard";
-import Login from "./pages/admin/Login";
-import Register from "./pages/admin/Register";
+import Login from "./pages/Login";
 import Home from "./pages/Home";
 import OurTeam from "./pages/OurTeam";
 import ForeignTrade from "./pages/services/ForeignTrade";
@@ -23,6 +22,8 @@ import AddNews from "./pages/admin/AddNews";
 import AddProject from "./pages/admin/AddProject";
 import EditProject from "./pages/admin/EditProject";
 import EditNews from "./pages/admin/EditNews";
+import RegisterAdmin from "./pages/admin/RegisterAdmin";
+import Register from "./pages/Register";
 
 function App() {
   const router = createBrowserRouter([
@@ -73,6 +74,10 @@ function App() {
       element: <NewsScreen />,
     },
     {
+      path: "/projects/:id",
+      element: <ProjectScreen />,
+    },
+    {
       path: "/admin",
       element: (
         <ProtectedRoute>
@@ -86,7 +91,7 @@ function App() {
         },
         {
           path: "add-admin",
-          element: <Register />,
+          element: <RegisterAdmin />,
         },
         {
           path: "add-news",
@@ -107,8 +112,12 @@ function App() {
       ],
     },
     {
-      path: "/admin/login",
+      path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
   ]);
   return <RouterProvider router={router} />;

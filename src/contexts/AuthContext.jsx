@@ -1,5 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import baseUrl from "../utils/axios";
+import catchResponseErr from "../utils/catchResponseErr";
 // import { signin } from '../api/userApi'
 
 export const AuthContext = createContext();
@@ -17,14 +19,17 @@ export const AuthContextProvider = ({ children }) => {
       const res = await baseUrl.post("/users/login", inputs);
       setCurrentUser({ ...res.data.user, token: res.data.token });
       setLoading(false);
+      toast.success("Амжилттай нэвтэрлээ");
     } catch (e) {
       console.log(e);
       setErr(e);
       setLoading(false);
+      toast.error(catchResponseErr(e));
     }
   };
 
   const logout = () => {
+    toast.success("Амжилттай гарлаа");
     localStorage.removeItem("user");
     setCurrentUser(null);
   };

@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
+import { AuthContext } from "../contexts/AuthContext";
+import { Spin } from "antd";
 
 function Login() {
   const { login, currentUser, loading, err } = useContext(AuthContext);
@@ -32,14 +33,23 @@ function Login() {
   const navigate = useNavigate();
   useEffect(() => {
     const checkUser = () => {
-      currentUser && navigate("/admin/dashboard");
+      currentUser && navigate("/");
     };
     checkUser();
   }, [currentUser]);
 
   return (
-    <div className="h-screen flex justify-center md:items-center">
-      <div className="w-full  max-w-[600px] p-5">
+    <div className="sm:h-screen mt-10 sm:mt-0 flex justify-center md:items-center">
+      <div className="w-full max-w-[600px] p-4">
+        <div className="flex justify-center mb-10">
+          <div className="flex items-center">
+            <img src="/images/logo1.png" className="max-w-[70px]" />
+            <p className="text-slate-700 font-semibold ">
+              TALIIN KHISHIG MINING
+            </p>
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="relative w-full mb-3">
             <label
@@ -51,7 +61,7 @@ function Login() {
             <input
               type="email"
               // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-              className={`block w-full bg-transparent rounded-xl outline py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
+              className={`block w-full bg-transparent outline-2 rounded-md outline py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
                 errors.email ? "outline-red-500" : "outline-primary"
               }`}
               {...register("email")}
@@ -74,7 +84,7 @@ function Login() {
             <input
               // type="password"
               // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-              className={`block w-full bg-transparent outline rounded-xl py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
+              className={`block w-full bg-transparent outline-2 outline rounded-md py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
                 errors.password ? "outline-red-500" : "outline-primary"
               }`}
               {...register("password")}
@@ -88,18 +98,23 @@ function Login() {
             )}
           </div>
           <div className="text-center mt-6">
-            <button
-              className="bg-primary text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-4 rounded-xl shadow hover:shadow-xl outline-none focus:outline-none mr-1 mb-1 w-full"
-              type="submit"
-              style={{ transition: "all .15s ease" }}
-            >
-              {!loading ? "Нэвтрэх" : "Loading..."}
-            </button>
+            <Spin spinning={loading}>
+              <button
+                className="bg-primary h-[50px] text-white active:bg-gray-700 text-sm font-bold uppercase px-6 rounded-lg shadow hover:shadow-xl outline-none focus:outline-none mr-1 mb-1 w-full"
+                type="submit"
+                style={{ transition: "all .15s ease" }}
+              >
+                {!loading ? "Нэвтрэх" : null}
+              </button>
+            </Spin>
           </div>
         </form>
-        <div className="flex justify-end pt-3">
-          <Link to="/admin/register" className="hover:underline text-primary">
-            Шинээр Бүртгүүлэх
+        <div className="flex justify-end">
+          <Link
+            to={"/register"}
+            className="text-slate-500 py-3 hover:underline"
+          >
+            Бүртгүүлэх
           </Link>
         </div>
       </div>

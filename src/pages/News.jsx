@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Heading from "../components/Heading";
 import NewsCard from "../components/NewsCard";
+import SkeletonCard from "../components/SkeletonCard";
 
 export default function News() {
   const [page, setPage] = useState(1);
@@ -40,10 +41,14 @@ export default function News() {
           }
         />
         <div className="my-container grid sm:grid-cols-2 xl:grid-cols-3 gap-5 pt-10">
-          {!isLoading && !error ? (
-            allNews?.map((news) => <NewsCard news={news} key={news._id} />)
+          {isLoading ? (
+            Array(5)
+              .fill(null)
+              .map((_, i) => <SkeletonCard key={i} />)
+          ) : error ? (
+            <Alert message={error} type="error" />
           ) : (
-            <p>loading...</p>
+            allNews.map((news) => <NewsCard news={news} />)
           )}
         </div>
         <div className="flex justify-center mb-10">

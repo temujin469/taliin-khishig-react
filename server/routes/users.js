@@ -24,7 +24,7 @@ router.use(protect);
 //"/api/v1/users"
 router
   .route("/")
-  .get(authorize("admin"), getUsers)
+  .get(authorize("admin", "operator"), getUsers)
   .post(authorize("admin"), createUser);
 
 router

@@ -4,7 +4,7 @@ import Greeting from "../components/Greeting";
 import InfoSection from "../components/InfoSection";
 import NewsSection from "../components/NewsSection";
 import Partners from "../components/Partners";
-import Projects from "../components/Projects";
+import ProjectSection from "../components/ProjectSection";
 import Services from "../components/Services";
 import Subscribe from "../components/Subscribe";
 // Import Swiper styles
@@ -16,7 +16,7 @@ function Home() {
       <Services />
       <InfoSection />
       <Greeting />
-      <Projects />
+      <ProjectSection />
       <BusinessFacts />
       <Partners />
       <NewsSection />

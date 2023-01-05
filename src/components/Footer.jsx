@@ -1,40 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="bg-[#353B41]">
       <div className="p-5 md:pt-20 lg:container md:px-24 lg:mx-auto  sm:p-6">
-        <div className="flex md:flex-row flex-col justify-between gap-8 md:gap-6 py-10">
+        <div className="flex md:flex-row flex-col justify-between gap-8 xl:gap-20 py-10">
           <div className="mb-6 md:mb-0">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img src="/images/logo1.png" className="h-20 w-20" alt="Logo" />
               <span className="self-center text-white text-lg font-semibold">
                 TALIIN KHISHIG MINING
               </span>
-            </a>
+            </Link>
           </div>
-          <div className="lg:flex gap-6">
+          <div className="xl:flex xl:gap-20">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-white whitespace-nowrap">
                 For inquiries
               </h2>
               <ul className="text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Follow Taliin Khishig
-                  </a>
+                  <Link to="#" className="hover:underline">
+                    Follow
+                  </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white">
+              <h2 className="mb-6 text-sm font-semibold text-white whitespace-normal">
                 Head Office
               </h2>
               <ul className="text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline ">
+                  <Link to="#" className="hover:underline ">
                     Head Office Address
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -63,7 +64,7 @@ function Footer() {
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <div className="flex sm:flex-row flex-col items-center sm:justify-between">
           <span className="text-sm sm:text-center text-gray-400  md:pb-0 pb-5">
-            All rights reserved by ‘Taliin Khishig Mining LLC’ 2022
+            All rights reserved by ‘Taliin Khishig Mining LLC’ 2023
           </span>
           <span className="text-sm sm:text-center text-gray-400">
             Developed by Global Smart Systems LLC,

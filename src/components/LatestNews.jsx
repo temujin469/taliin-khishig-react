@@ -26,10 +26,10 @@ function LatestNews() {
               className="flex gap-3"
               key={news._id}
             >
-              <div className="h-[130px] w-[130px] overflow-hidden rounded-xl">
+              <div className="h-[130px] w-[130px] overflow-hidden rounded-lg">
                 <img
                   src={`/upload/${news.photo}`}
-                  className="h-[130px] w-[130px] rounded-xl object-cover hover:scale-[1.1] duration-200"
+                  className="h-[130px] w-[130px] object-cover hover:scale-[1.1] duration-200"
                   alt={news.title}
                 />
               </div>

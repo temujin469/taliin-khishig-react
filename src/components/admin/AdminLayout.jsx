@@ -1,4 +1,4 @@
-import { Tooltip } from "antd";
+import { Alert, Tooltip } from "antd";
 import React, { useEffect } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useAdminContext } from "../../contexts/AdminStateContext";
@@ -9,7 +9,6 @@ import ThemeSettings from "./ThemeSettings";
 import { FiSettings } from "react-icons/fi";
 import { useAuthContext } from "../../contexts/AuthContext";
 import ContainerBox from "./ContainerBox";
-import { Toaster } from "react-hot-toast";
 
 function AdminLayout() {
   const {
@@ -33,21 +32,11 @@ function AdminLayout() {
     }
   }, []);
 
-  return currentUser ? (
+  return currentUser?.role === "admin" || currentUser?.role === "operator" ? (
     <div className={currentMode === "Dark" ? "dark" : ""}>
-      <Toaster
-        toastOptions={{
-          success: {
-            style: {
-              background: currentColor,
-              color: "#fff",
-            },
-          },
-        }}
-      />
       <div className="flex relative dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
-          <Tooltip title="Тохиргоо" placement="top">
+          <Tooltip title="Тохиргоо" placement="top" color={currentColor}>
             <button
               type="button"
               onClick={() => setThemeSettings(true)}
@@ -87,8 +76,18 @@ function AdminLayout() {
         </div>
       </div>
     </div>
+  ) : currentUser?.role === "user" ? (
+    <div className="flex items-center justify-center min-h-screen">
+      <div>
+        <Alert
+          description="Та энэ хуудасруу нэвтрэх боломжгүй байна!"
+          type="error"
+          showIcon
+        />
+      </div>
+    </div>
   ) : (
-    <Navigate to={"/admin/login"} />
+    <Navigate to={"/login"} />
   );
 }
 
