@@ -4,16 +4,16 @@ const { uploadFile } = require("../controller/upload");
 
 const router = express.Router();
 
+/* FILE STORAGE */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "upload");
+    cb(null, "public/assets");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname);
+    cb(null, file.originalname);
   },
 });
-
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 router.route("/").post(upload.single("photo"), uploadFile);
 

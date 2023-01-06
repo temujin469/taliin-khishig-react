@@ -6,9 +6,9 @@ function ProjectCard({ project }) {
     <div>
       <div className="rounded-lg border overflow-hidden max-w-[400px] ">
         <img
-          src={`/upload/${project.photo}`}
+          src={`${import.meta.env.VITE_API_URL}/assets/${project.photo}`}
           className="w-full h-[200px] object-cover"
-          alt={`${project.photo}`}
+          alt={`photo`}
         />
         <div className=" p-5">
           <p className="font-semibold mb-2 text-[17px] whitespace-normal md:h-[80px] overflow-hidden ">

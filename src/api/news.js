@@ -13,3 +13,23 @@ export const getLatestNews = async () => {
   );
   return res.data;
 };
+
+export const addNews = async ({ file, body, token }) => {
+  let filename = null;
+
+  if (file) {
+    const res = await baseUrl.post("/upload", file);
+    filename = res.data.filename;
+  }
+
+  return await baseUrl.post(
+    "/news",
+    { ...body, photo: filename },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  // console.log(response.data);
+};

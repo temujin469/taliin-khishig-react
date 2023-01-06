@@ -12,7 +12,7 @@ export default function NewsCard({ news, color }) {
       <div className="w-full overflow-hidden h-[210px] rounded-lg border dark:border-[#333]">
         <img
           alt="Post thumbnail"
-          src={`/upload/${news.photo}`}
+          src={`${import.meta.env.VITE_API_URL}/assets/${news.photo}`}
           className="hover:scale-[1.1] transition-all w-full h-full object-cover cursor-pointer mb-2"
         />
       </div>

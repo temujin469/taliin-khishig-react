@@ -53,7 +53,9 @@ function ProjectScreen() {
                     <div className="w-full overflow-hidden rounded-2xl max-h-[600px] mb-5">
                       <img
                         alt="Post thumbnail"
-                        src={`/upload/${project.photo}`}
+                        src={`${import.meta.env.VITE_API_URL}/assets/${
+                          project.photo
+                        }`}
                         className="transition-all w-full h-full object-cover"
                       />
                     </div>

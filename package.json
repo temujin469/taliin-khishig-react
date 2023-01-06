@@ -20,6 +20,7 @@
     "react-hook-form": "^7.41.3",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
+    "react-images-uploading": "^3.1.7",
     "react-query": "^3.39.2",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.6.1",

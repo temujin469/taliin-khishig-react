@@ -13,10 +13,14 @@ const newsRoutes = require("./routes/news");
 const usersRoutes = require("./routes/users");
 const uploadRoutes = require("./routes/upload");
 
+const app = express();
+
 // Аппын тохиргоог process.env рүү ачаалах
 dotenv.config({ path: __dirname + "/config/.env" });
 
-const app = express();
+// app.use()
+
+// console.log(__dirname + "public/assets");
 
 connectDB();
 
@@ -25,10 +29,12 @@ app.use(express.json({ limit: "50mb" }));
 app.use(cors());
 app.use(cookieParser());
 app.use(logger);
+
+app.use("/api/v1/assets", express.static("public/assets"));
+app.use("/api/v1/upload", uploadRoutes);
 app.use("/api/v1/projects", projectsRoutes);
 app.use("/api/v1/news", newsRoutes);
 app.use("/api/v1/users", usersRoutes);
-app.use("/api/v1/upload", uploadRoutes);
 
 app.use(errorHandler);
 
