@@ -60,5 +60,3 @@ app.listen(process.env.PORT, () => {
 //     process.exit(1);
 //   });
 // });
-
-module.exports = app;
