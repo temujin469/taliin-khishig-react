@@ -34,6 +34,7 @@ app.use(
   "/api/v1/assets",
   express.static(path.join(__dirname, "public/assets"))
 );
+
 app.use("/api/v1/upload", uploadRoutes);
 app.use("/api/v1/projects", projectsRoutes);
 app.use("/api/v1/news", newsRoutes);
