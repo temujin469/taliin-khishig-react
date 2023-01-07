@@ -2,10 +2,10 @@ import React from "react";
 
 function Subscribe() {
   return (
-    <div className="flex md:px-5 flex-col-reverse md:flex-row items-center justify-center md:container md:mx-auto my-10">
-      <div className="w-[75%] md:w-[60%]">
-        <div className="bg-white shadow-md relative mt-[-80px] md:static md:mt-0 md:mx-0 rounded-lg overflow-hidden p-10 md:p-14 lg:pr-40">
-          <p className="text-4xl text-gray-800 font-semibold mb-10 text-center">
+    <div className="flex md:px-4 flex-col-reverse md:flex-row items-center justify-center md:container md:mx-auto my-10">
+      <div className="w-[80%] md:w-[60%]">
+        <div className="bg-white shadow-md relative mt-[-80px] md:static md:mt-0 md:mx-0 rounded-lg overflow-hidden p-8 sm:p-14 lg:pr-40">
+          <p className="text-2xl sm:text-4xl text-gray-800 font-semibold mb-10 text-center">
             For inquiries
           </p>
           <p className="text-gray-600 mb-10 text-center md:text-start">
@@ -23,7 +23,7 @@ function Subscribe() {
       </div>
       <img
         src="/images/Write-a-Professional-Email 1 (1).png"
-        className="md:relative px-5 md:px-0 md:mt-0 md:ml-[-120px] md:hidden lg:block md:max-w-[30%] h-full"
+        className="md:relative px-4 md:px-0 md:mt-0 md:ml-[-120px] md:hidden lg:block md:max-w-[30%] h-full"
       />
     </div>
   );

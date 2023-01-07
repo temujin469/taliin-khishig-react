@@ -40,7 +40,7 @@ function ProjectSection() {
         {/* <!-- for md screen --> */}
         <div className="relative md:col-span-5 2xl:col-span-6 2xl:ml-5  md:px-10 lg:px-20 flex justify-center">
           <Swiper
-            className="overflow-hidden hidden md:block pb-16"
+            className="overflow-hidden hidden md:block pb-16 w-full"
             spaceBetween={20}
             slidesPerView={1}
             modules={[Navigation, Pagination, A11y]}
@@ -69,7 +69,7 @@ function ProjectSection() {
                   </SwiperSlide>
                 ))
             ) : error ? (
-              <Alert message={error} type="error" />
+              <Alert message={catchResponseErr(error)} type="error" />
             ) : (
               projects?.map((project) => (
                 <SwiperSlide
@@ -90,7 +90,7 @@ function ProjectSection() {
         </div>
 
         {/* <!-- for mobile screen --> */}
-        <div className="md:hidden flex flex-col gap-5 px-10 items-center ">
+        <div className="md:hidden flex flex-col gap-5 px-4 items-center ">
           {isLoading ? (
             Array(5)
               .fill(null)

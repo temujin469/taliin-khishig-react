@@ -20,7 +20,7 @@ function NewsSection() {
 
   return (
     //  {/* <!-- news-section start--> */}
-    <div className="lg:container lg:mx-auto px-5  md:px-40">
+    <div className="lg:container lg:mx-auto px-4  md:px-40">
       <div className="flex flex-col md:flex-row items-center gap-5 pt-16">
         <p className="text-xl font-semibold">Latest news</p>
         <Link

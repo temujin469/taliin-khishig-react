@@ -42,7 +42,7 @@ function Heading({ title, subTitle, img }) {
 
   return (
     <div className="relative sm:px-10 lg:px-20">
-      <div className="md:container mb-10 mx-5 md:mx-auto md:mt-[-80px] max-w-[1100px] mt-80 rounded-xl shadow-lg bg-white  ">
+      <div className="md:container mb-10 mx-4 md:mx-auto md:mt-[-80px] max-w-[1100px] mt-80 rounded-xl shadow-lg bg-white  ">
         <div className="grid grid-cols-1 md:grid-cols-3 ">
           <div className="col-span-2 m-10">
             <Breadcrumb

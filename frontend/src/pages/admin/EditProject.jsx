@@ -42,7 +42,7 @@ function EditProject() {
             size="large"
             defaultPageSize={pagination?.limit}
             onChange={(p) => setPage(p)}
-            defaultCurrent={1}
+            current={page}
             total={pagination?.total}
           />
         </div>

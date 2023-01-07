@@ -7,17 +7,16 @@ export const getAllProject = async (page) => {
   return res.data;
 };
 
-export const addProject = async ({ file, body, token }) => {
-  let filename = null;
-
-  if (file) {
-    const res = await baseUrl.post("/upload", file);
-    filename = res.data.filename;
+export const addProject = async ({ body, token }) => {
+  let img_url;
+  if (body.photo) {
+    const res = await baseUrl.post("/upload", { photo: body.photo });
+    img_url = res.data.imgUrl;
   }
 
   return await baseUrl.post(
     "/projects",
-    { ...body, photo: filename },
+    { ...body, photo: img_url },
     {
       headers: {
         Authorization: `Bearer ${token}`,

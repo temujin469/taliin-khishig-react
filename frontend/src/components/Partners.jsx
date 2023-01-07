@@ -27,7 +27,7 @@ function Partners() {
       <div className="md:container md:mx-auto">
         <div className="flex items-center flex-col pt-16">
           <p className="text-xl font-semibold mb-5">Partners</p>
-          <p className="py-2 px-5 rounded-lg bg-orange-400/40 text-center text-[#FE7200]">
+          <p className="py-2 px-4 rounded-lg bg-orange-400/40 text-center text-[#FE7200]">
             Working with us?
           </p>
         </div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Services() {
   return (
     <div className="relative lg:px-20 md:px-5">
-      <ul className="md:container mb-10 mx-5 md:mx-auto sm:mt-[230px] md:mt-[-80px] grid max-w-[1100px] mt-80 sm:grid-cols-2 xl:grid-cols-4 rounded-xl shadow-lg bg-white divide-y md:divide-y-0 md:divide-x  ">
+      <ul className="md:container mb-10 mx-4 md:mx-auto sm:mt-[230px] md:mt-[-80px] grid max-w-[1100px] mt-80 sm:grid-cols-2 xl:grid-cols-4 rounded-xl shadow-lg bg-white divide-y md:divide-y-0 md:divide-x  ">
         <li className="flex flex-col gap-3 mx-10 md:mx-0 py-10 md:py-0 md:px-10 md:my-10">
           <img
             src="/serviceIcons/Group 30311.png"

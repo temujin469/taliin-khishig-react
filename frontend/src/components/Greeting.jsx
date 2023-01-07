@@ -41,12 +41,12 @@ function Greeting() {
         </div>
       </div>
       {/* <!-- greeting-section-mobile start --> */}
-      <div className="my-16 mx-5 flex justify-center items-center md:hidden">
+      <div className="my-16 mx-4 flex justify-center items-center md:hidden">
         <div className="">
           <div className="rounded-lg overflow-hidden shadow-md">
             <img src="/images/greeting.png" className="w-full h-full" />
           </div>
-          <div className="bg-white rounded-lg relative p-10 mt-[-80px] mx-5">
+          <div className="bg-white rounded-lg relative p-8 mt-[-80px] mx-5">
             <div>
               <div className="mb-6">
                 <i className="fa-solid fa-quote-left text-[#FE7200]"></i>

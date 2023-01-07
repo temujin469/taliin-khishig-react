@@ -59,13 +59,9 @@ const AddProject = () => {
 
   const handleSubmit = () => {
     setLoading(true);
-    const body = { content, title, subTitle, date };
-    const formData = new FormData();
-
-    photo && formData.append("photo", photo);
+    const body = { content, title, subTitle, date, photo };
 
     addProjectMutation.mutate({
-      file: photo && formData,
       body: body,
       token: currentUser.token,
     });

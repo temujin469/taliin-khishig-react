@@ -11,6 +11,7 @@ import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
 import { Alert, Image, Skeleton, Tag } from "antd";
 import catchResponseErr from "../utils/catchResponseErr";
+import Header2 from "../components/Header2";
 
 function NewsScreen() {
   const { id } = useParams();
@@ -31,11 +32,8 @@ function NewsScreen() {
 
   return (
     <div>
-      <Header
-        height={"h-[180px]"}
-        bgImage="https://images.unsplash.com/photo-1548504769-900b70ed122e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
-      />
-      <div className="relative mt-[-20px] bg-gray-100 z-[100px] py-10">
+      <Header2 />
+      <div className=" bg-gray-100 pb-10 pt-5">
         <div className="mx-4 sm:mx-20 md:mx-10 xl:mx-20">
           <div className="max-w-[1280px] pt-5 mx-auto">
             <div className="lg:grid grid-cols-6 lg:gap-10 space-y-10 md:space-y-0">
