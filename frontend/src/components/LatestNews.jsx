@@ -5,7 +5,6 @@ import { BsCalendarDate } from "react-icons/bs";
 import moment from "moment";
 import { getLatestNews } from "../api/news";
 import { Alert, Skeleton } from "antd";
-import { Link } from "react-router-dom";
 
 function LatestNews() {
   const { data, isLoading, error } = useQuery(
@@ -34,8 +33,8 @@ function LatestNews() {
               ))
           : allNews
           ? allNews.map((news) => (
-              <Link
-                to={`/news/${news.slug}`}
+              <a
+                href={`/news/${news.slug}`}
                 className="flex gap-3"
                 key={news._id}
               >
@@ -58,7 +57,7 @@ function LatestNews() {
                     {moment(news.date).format("MMM Do YY")}
                   </p>
                 </div>
-              </Link>
+              </a>
             ))
           : error && <Alert message={"Алдаа гарлаа"} type="error" />}
       </ul>

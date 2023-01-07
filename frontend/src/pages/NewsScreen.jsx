@@ -9,7 +9,7 @@ import LatestNews from "../components/LatestNews";
 import baseUrl from "../utils/axios";
 import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
-import { Alert, Skeleton, Tag } from "antd";
+import { Alert, Image, Skeleton, Tag } from "antd";
 import catchResponseErr from "../utils/catchResponseErr";
 
 function NewsScreen() {
@@ -65,12 +65,8 @@ function NewsScreen() {
                         </div>
                       </div>
 
-                      <div className="w-full overflow-hidden rounded max-h-[600px] mb-5">
-                        <img
-                          alt="Post thumbnail"
-                          src={news.photo}
-                          className="transition-all w-full h-full object-cover"
-                        />
+                      <div className="mb-5">
+                        <Image width={"100%"} src={news.photo} />
                       </div>
                       <div>{parse(news.content)}</div>
                     </div>
