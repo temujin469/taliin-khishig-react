@@ -3,6 +3,10 @@
     {
       "src": "./server/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "src/*.jsx",
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
