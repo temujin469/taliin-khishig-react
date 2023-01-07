@@ -5,9 +5,7 @@
       "use": "@vercel/node"
     },
     {
-      "src": "./",
-      "buildCommand": "npm run build",
-      "installCommand": "npm install"
+      "src": "./"
     }
   ],
   "rewrites": [
