@@ -5,8 +5,8 @@
       "use": "@vercel/node"
     },
     {
-      "src": "./dist",
-      "use": "@vercel/static"
+      "src": "./",
+      "use": "@vercel/node"
     }
   ],
   "rewrites": [
