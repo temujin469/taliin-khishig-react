@@ -6,6 +6,7 @@ import ProjectCard from "./ProjectCard";
 import { useQuery } from "react-query";
 import { getAllProject } from "../api/projects";
 import SkeletonCard from "./SkeletonCard";
+import { Alert } from "antd";
 
 // const project = {
 //   title: "Working with us",

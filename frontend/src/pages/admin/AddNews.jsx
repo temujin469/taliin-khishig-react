@@ -51,13 +51,9 @@ const AddNews = () => {
 
   const handleSubmit = () => {
     setLoading(true);
-    const body = { content, title, date, tags };
-    const formData = new FormData();
-
-    photo && formData.append("photo", photo);
+    const body = { content, title, date, tags, photo };
 
     addNewsMutation.mutate({
-      file: photo && formData,
       body: body,
       token: currentUser.token,
     });

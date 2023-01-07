@@ -14,17 +14,16 @@ export const getLatestNews = async () => {
   return res.data;
 };
 
-export const addNews = async ({ file, body, token }) => {
-  let filename = null;
-
-  if (file) {
-    const res = await baseUrl.post("/upload", file);
-    filename = res.data.filename;
+export const addNews = async ({ body, token }) => {
+  let img_url;
+  if (body.photo) {
+    const res = await baseUrl.post("/upload", { photo: body.photo });
+    img_url = res.data.imgUrl;
   }
 
   return await baseUrl.post(
     "/news",
-    { ...body, photo: filename },
+    { ...body, photo: img_url },
     {
       headers: {
         Authorization: `Bearer ${token}`,

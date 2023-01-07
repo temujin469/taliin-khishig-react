@@ -1,4 +1,4 @@
-import { Pagination } from "antd";
+import { Alert, Pagination } from "antd";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getAllNews } from "../../api/news";
@@ -30,7 +30,7 @@ function EditNews() {
             .fill(null)
             .map((_, i) => <SkeletonCard key={i} />)
         ) : error ? (
-          <Alert message={error} type="error" />
+          <Alert message={JSON.stringify(error)} type="error" />
         ) : (
           allNews.map((news) => <NewsCard news={news} />)
         )}

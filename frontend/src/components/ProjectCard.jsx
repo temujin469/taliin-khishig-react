@@ -6,7 +6,7 @@ function ProjectCard({ project }) {
     <div>
       <div className="rounded-lg border overflow-hidden max-w-[400px] ">
         <img
-          src={`${import.meta.env.VITE_API_URL}/assets/${project.photo}`}
+          src={project.photo}
           className="w-full h-[200px] object-cover"
           alt={`photo`}
         />

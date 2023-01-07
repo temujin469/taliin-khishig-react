@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import NewsCard from "./NewsCard";
 import { getLatestNews } from "../api/news";
 import SkeletonCard from "./SkeletonCard";
+import { Alert } from "antd";
 
 function NewsSection() {
   const { data, isLoading, error } = useQuery(

@@ -1,4 +1,4 @@
-import { Pagination } from "antd";
+import { Alert, Pagination } from "antd";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getAllNews } from "../api/news";

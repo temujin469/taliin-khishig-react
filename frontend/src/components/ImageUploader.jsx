@@ -12,11 +12,11 @@ function ImageUploader({ photo, setPhoto }) {
 
   const { currentColor } = useAdminContext();
 
-  const onChange = (imageList, addUpdateIndex) => {
+  const onChange = async (imageList, addUpdateIndex) => {
     // data for submit
     console.log(imageList[0]);
     setImages(imageList);
-    setPhoto(imageList[0]?.file);
+    setPhoto(imageList[0]?.data_url);
   };
   return (
     <ImageUploading

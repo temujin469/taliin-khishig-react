@@ -66,9 +66,7 @@ function NewsScreen() {
                     <div className="w-full overflow-hidden rounded max-h-[600px] mb-5">
                       <img
                         alt="Post thumbnail"
-                        src={`${import.meta.env.VITE_API_URL}/assets/${
-                          news.photo
-                        }`}
+                        src={news.photo}
                         className="transition-all w-full h-full object-cover"
                       />
                     </div>
