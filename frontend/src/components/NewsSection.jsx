@@ -8,6 +8,7 @@ import NewsCard from "./NewsCard";
 import { getLatestNews } from "../api/news";
 import SkeletonCard from "./SkeletonCard";
 import { Alert } from "antd";
+import catchResponseErr from "../utils/catchResponseErr";
 
 function NewsSection() {
   const { data, isLoading, error } = useQuery(
@@ -65,9 +66,9 @@ function NewsSection() {
                 </SwiperSlide>
               ))
           ) : error ? (
-            <Alert message={error} type="error" />
+            <Alert message={catchResponseErr(error)} type="error" />
           ) : (
-            allNews.map((news) => (
+            allNews?.map((news) => (
               <SwiperSlide key={news._id}>
                 <NewsCard news={news} />
               </SwiperSlide>

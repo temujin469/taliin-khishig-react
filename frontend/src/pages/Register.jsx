@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -7,6 +7,7 @@ import { useMutation } from "react-query";
 import baseUrl from "../utils/axios";
 import { toast } from "react-hot-toast";
 import { Spin } from "antd";
+import catchResponseErr from "../utils/catchResponseErr";
 
 function Register() {
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,7 @@ function Register() {
       },
       onError: (err) => {
         setLoading(false);
-        toast.error("Алдаа гарлаа");
+        toast.error(catchResponseErr(err));
         console.log(err);
       },
     }

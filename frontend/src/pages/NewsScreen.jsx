@@ -10,6 +10,7 @@ import baseUrl from "../utils/axios";
 import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
 import { Alert, Skeleton, Tag } from "antd";
+import catchResponseErr from "../utils/catchResponseErr";
 
 function NewsScreen() {
   const { id } = useParams();
@@ -45,33 +46,35 @@ function NewsScreen() {
                     <Skeleton.Image active className="h-[600px] mt-5 w-full" />
                   </div>
                 ) : error ? (
-                  <Alert message={error} type="error" />
+                  <Alert message={catchResponseErr(error)} type="error" />
                 ) : (
-                  <div className="max-w-[800px]">
-                    <div className="mb-5">
-                      <h3 className="heading-md lg:text-2xl m-0">
-                        {news.title}
-                      </h3>
-                      <p className=" text-gray mt-2 flex items-center gap-1 mb-5">
-                        <BsCalendarDate />
-                        {moment(news.date).format("MMM Do YY")}
-                      </p>
-                      <div>
-                        {news.tags.map((tag) => (
-                          <Tag color="orange">{tag}</Tag>
-                        ))}
+                  news && (
+                    <div className="max-w-[800px]">
+                      <div className="mb-5">
+                        <h3 className="heading-md lg:text-2xl m-0">
+                          {news.title}
+                        </h3>
+                        <p className=" text-gray mt-2 flex items-center gap-1 mb-5">
+                          <BsCalendarDate />
+                          {moment(news.date).format("MMM Do YY")}
+                        </p>
+                        <div>
+                          {news.tags.map((tag) => (
+                            <Tag color="orange">{tag}</Tag>
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="w-full overflow-hidden rounded max-h-[600px] mb-5">
-                      <img
-                        alt="Post thumbnail"
-                        src={news.photo}
-                        className="transition-all w-full h-full object-cover"
-                      />
+                      <div className="w-full overflow-hidden rounded max-h-[600px] mb-5">
+                        <img
+                          alt="Post thumbnail"
+                          src={news.photo}
+                          className="transition-all w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>{parse(news.content)}</div>
                     </div>
-                    <div>{parse(news.content)}</div>
-                  </div>
+                  )
                 )}
               </div>
 

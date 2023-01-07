@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Heading from "../components/Heading";
 import NewsCard from "../components/NewsCard";
 import SkeletonCard from "../components/SkeletonCard";
+import catchResponseErr from "../utils/catchResponseErr";
 
 export default function News() {
   const [page, setPage] = useState(1);
@@ -46,9 +47,9 @@ export default function News() {
               .fill(null)
               .map((_, i) => <SkeletonCard key={i} />)
           ) : error ? (
-            <Alert message={error} type="error" />
+            <Alert message={catchResponseErr(error)} type="error" />
           ) : (
-            allNews.map((news) => <NewsCard news={news} />)
+            allNews && allNews.map((news) => <NewsCard news={news} />)
           )}
         </div>
         <div className="flex justify-center mb-10">

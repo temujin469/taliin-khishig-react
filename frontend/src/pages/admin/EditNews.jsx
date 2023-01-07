@@ -5,6 +5,7 @@ import { getAllNews } from "../../api/news";
 import NewsCard from "../../components/NewsCard";
 import SkeletonCard from "../../components/SkeletonCard";
 import { useAdminContext } from "../../contexts/AdminStateContext";
+import catchResponseErr from "../../utils/catchResponseErr";
 
 function EditNews() {
   const [page, setPage] = useState(1);
@@ -30,7 +31,7 @@ function EditNews() {
             .fill(null)
             .map((_, i) => <SkeletonCard key={i} />)
         ) : error ? (
-          <Alert message={JSON.stringify(error)} type="error" />
+          <Alert message={catchResponseErr(error)} type="error" />
         ) : (
           allNews.map((news) => <NewsCard news={news} />)
         )}

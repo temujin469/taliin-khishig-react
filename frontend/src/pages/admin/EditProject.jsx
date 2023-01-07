@@ -2,10 +2,10 @@ import { Alert, Pagination } from "antd";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { getAllProject } from "../../api/projects";
-import NewsCard from "../../components/NewsCard";
 import ProjectCard from "../../components/ProjectCard";
 import SkeletonCard from "../../components/SkeletonCard";
 import { useAdminContext } from "../../contexts/AdminStateContext";
+import catchResponseErr from "../../utils/catchResponseErr";
 
 function EditProject() {
   const [page, setPage] = useState(1);
@@ -31,7 +31,7 @@ function EditProject() {
             .fill(null)
             .map((_, i) => <SkeletonCard key={i} />)
         ) : error ? (
-          <Alert message={error} type="error" />
+          <Alert message={catchResponseErr(error)} type="error" />
         ) : (
           projects?.map((project) => <ProjectCard project={project} />)
         )}

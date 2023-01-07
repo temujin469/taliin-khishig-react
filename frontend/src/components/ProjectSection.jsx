@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 import { getAllProject } from "../api/projects";
 import SkeletonCard from "./SkeletonCard";
 import { Alert } from "antd";
+import catchResponseErr from "../utils/catchResponseErr";
 
 // const project = {
 //   title: "Working with us",
@@ -95,7 +96,7 @@ function ProjectSection() {
               .fill(null)
               .map((_, i) => <SkeletonCard key={i} />)
           ) : error ? (
-            <Alert message={error} type="error" />
+            <Alert message={catchResponseErr(error)} type="error" />
           ) : (
             projects?.map((project) => (
               <ProjectCard project={project} key={project._id} />
