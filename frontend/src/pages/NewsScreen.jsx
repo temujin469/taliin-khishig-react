@@ -20,7 +20,7 @@ function NewsScreen() {
     data: news,
     isLoading,
     error,
-  } = useQuery(["news"], async () => {
+  } = useQuery(["news", id], async () => {
     const res = await baseUrl.get(`/news/${id}`);
     return res.data.data;
   });
