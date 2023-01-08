@@ -33,8 +33,8 @@ function LatestNews() {
               ))
           : allNews
           ? allNews.map((news) => (
-              <a
-                href={`/news/${news.slug}`}
+              <Link
+                to={`/news/${news.slug}`}
                 className="flex gap-3"
                 key={news._id}
               >
@@ -57,7 +57,7 @@ function LatestNews() {
                     {moment(news.date).format("MMM Do YY")}
                   </p>
                 </div>
-              </a>
+              </Link>
             ))
           : error && <Alert message={"Алдаа гарлаа"} type="error" />}
       </ul>
