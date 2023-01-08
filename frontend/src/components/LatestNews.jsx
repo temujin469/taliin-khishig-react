@@ -5,6 +5,7 @@ import { BsCalendarDate } from "react-icons/bs";
 import moment from "moment";
 import { getLatestNews } from "../api/news";
 import { Alert, Skeleton } from "antd";
+import { Link } from "react-router-dom";
 
 function LatestNews() {
   const { data, isLoading, error } = useQuery(
