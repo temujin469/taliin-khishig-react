@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as FiIcons from "react-icons/fi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
+import Container from "./Container";
 
 const infos = [
   {
@@ -27,8 +28,8 @@ const infos = [
 
 function InfoSection() {
   return (
-    <div className="bg-white">
-      <div className="md:container mx-auto sm:px-10 px-4 md:px-20 flex flex-col justify-center items-center md:flex-row gap-5">
+    <Container bgColor={"#fff"}>
+      <div className="flex flex-col justify-center items-center md:flex-row gap-5">
         <Swiper
           className=" hidden sm:block w-full"
           spaceBetween={20}
@@ -55,7 +56,7 @@ function InfoSection() {
               <div className="rounded-xl border overflow-hidden shadow-sm hover:shadow-lg">
                 <img
                   src={info.photo}
-                  className="w-full h-[160px] object-cover"
+                  className="w-full h-[170px] object-cover"
                   alt=""
                 />
                 <div className=" p-5">
@@ -103,7 +104,7 @@ function InfoSection() {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 

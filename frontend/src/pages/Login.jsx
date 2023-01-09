@@ -60,7 +60,6 @@ function Login() {
             </label>
             <input
               type="email"
-              // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
               className={`block w-full bg-transparent outline-2 rounded-md outline py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
                 errors.email ? "outline-red-500" : "outline-primary"
               }`}
@@ -82,8 +81,7 @@ function Login() {
               Нууц үг
             </label>
             <input
-              // type="password"
-              // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+              type="password"
               className={`block w-full bg-transparent outline-2 outline rounded-md py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
                 errors.password ? "outline-red-500" : "outline-primary"
               }`}

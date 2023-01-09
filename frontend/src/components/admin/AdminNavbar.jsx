@@ -62,7 +62,7 @@ const AdminNavbar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex shadow-md bg-white sm:bg-transparent sm:shadow-none justify-between p-2 md:ml-6 md:mr-6 relative">
+    <div className="flex shadow-md bg-white dark:bg-secondary-dark-bg sm:dark:bg-transparent sm:bg-transparent sm:shadow-none justify-between p-2 md:ml-6 md:mr-6 relative">
       <NavButton
         title="Цэс"
         customFunc={handleActiveMenu}

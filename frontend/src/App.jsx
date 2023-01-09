@@ -60,7 +60,7 @@ function App() {
           element: <ForeignTrade />,
         },
         {
-          path: "/project/:id",
+          path: "/projects/:id",
           element: <ProjectScreen />,
         },
       ],
@@ -73,10 +73,10 @@ function App() {
       path: "/news/:id",
       element: <NewsScreen />,
     },
-    {
-      path: "/projects/:id",
-      element: <ProjectScreen />,
-    },
+    // {
+    //   path: "/projects/:id",
+    //   element: <ProjectScreen />,
+    // },
     {
       path: "/admin",
       element: (

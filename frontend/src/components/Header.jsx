@@ -7,6 +7,7 @@ import { Dropdown, Modal, Popconfirm } from "antd";
 import { useAuthContext } from "../contexts/AuthContext";
 
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import Container from "./Container";
 
 function Header({ title, description, bgImage, height }) {
   const [open, setOpen] = useState(false);
@@ -223,10 +224,12 @@ function Header({ title, description, bgImage, height }) {
         </nav>
         {/* <!-- navbar end --> */}
         <div className={!title && !description ? "hidden" : undefined}>
-          <div className="text-white lg:px-10 relative top-[60vh] mt-[60px] md:mt-0 md:static md:h-[calc(80vh-150px)] flex flex-col-reverse md:container md:mx-auto">
-            <div className="md:max-w-[700px] bg-gradient-to-br from-[#e77021] to-[#f5b062] md:bg-none pb-32 pt-16 px-10 md:px-0 md:pb-16">
-              <p className="text-3xl font-semibold mb-10 md:mb-5">{title}</p>
-              <p className="font-medium text-lg">{description}</p>
+          <div className="text-white relative top-[60vh] mt-[60px] md:mt-0 md:static md:h-[calc(80vh-150px)] flex flex-col-reverse">
+            <div className="bg-gradient-to-br from-[#e77021] to-[#f5b062] md:bg-none pb-32 pt-10 md:pb-16">
+              <Container>
+                <p className="text-3xl font-semibold mb-5 md:mb-5">{title}</p>
+                <p className="font-medium text-lg">{description}</p>
+              </Container>
             </div>
           </div>
         </div>

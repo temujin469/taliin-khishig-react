@@ -17,7 +17,24 @@ function Register() {
       .string()
       .email("Имэйлэ зөв оруулана уу")
       .required("Имэйлэ оруулана уу"),
-    password: yup.string().required("Нууц үгээ оруулана уу").min(6),
+    password: yup
+      .string()
+      .required("Нууц үгээ оруулана уу")
+      .min(6)
+      .when("oldPassword", (oldPassword, field) =>
+        oldPassword ? field.required() : field
+      ),
+    confirmPassword: yup
+      .string()
+      .required("Нууц үгээ давтан оруулана уу")
+      // .when("password", (password, field) =>
+      //   password
+      //     ? field
+      //         .required("Нууц үгээ давтан оруулана уу")
+      //         .oneOf([yup.ref("password")], "нууц үг таарахгүй байна")
+      //     : field
+      // ),
+      .oneOf([yup.ref("password"), null], "нууц үг таарахгүй байна"),
   });
 
   const {
@@ -51,7 +68,7 @@ function Register() {
 
   const handleRegister = (body) => {
     setLoading(true);
-    registerMutate.mutate(body);
+    registerMutate.mutate({ ...body, password: body.confirmPassword });
   };
 
   return (
@@ -115,18 +132,33 @@ function Register() {
             >
               Нууц үг
             </label>
+            <div className="mb-5">
+              <input
+                type="password"
+                className={`block w-full bg-transparent outline-2 outline rounded-md py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
+                  errors.password ? "outline-red-500" : "outline-primary"
+                }`}
+                {...register("password")}
+                placeholder="Нууц үг"
+              />
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-2">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
+
             <input
-              // type="password"
-              // className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+              type="password"
               className={`block w-full bg-transparent outline-2 outline rounded-md py-[10px] px-4 text-textClr/90 focus:bg-gray-light placeholder-gray ${
-                errors.password ? "outline-red-500" : "outline-primary"
+                errors.confirmPassword ? "outline-red-500" : "outline-primary"
               }`}
-              {...register("password")}
+              {...register("confirmPassword")}
               placeholder="Нууц үг"
             />
-            {errors.password && (
+            {errors.confirmPassword && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.password.message}
+                {errors.confirmPassword.message}
               </p>
             )}
           </div>

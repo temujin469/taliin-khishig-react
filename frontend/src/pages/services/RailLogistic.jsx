@@ -1,9 +1,10 @@
 import React from "react";
+import Container from "../../components/Container";
 import Heading from "../../components/Heading";
 
 function RailLogistic() {
   return (
-    <div>
+    <Container>
       <Heading
         title={"Rail logistic"}
         subTitle="Tal Hishig Mining LLC was established in 2017 with the investment of MU
@@ -11,7 +12,7 @@ function RailLogistic() {
             operating for the second year."
         img={"/serviceImages/digital-10 1.png"}
       />
-      <div className="container max-w-[1100px] px-5 md:px-20 mb-40 mx-auto">
+      <div className="mb-20">
         <div>
           <p className="md:px-20 p-5 border-l-[4px] border-[#FE7200] mb-5 text-gray-900 font-semibold">
             Since its establishment, the group aims to export mining products
@@ -37,7 +38,7 @@ function RailLogistic() {
           </p>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
 

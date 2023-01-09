@@ -6,13 +6,13 @@ import { useAdminContext } from "../../contexts/AdminStateContext";
 import { TbClipboardList } from "react-icons/tb";
 import { MdOutlineSupervisorAccount } from "react-icons/md";
 import { HiOutlineChartBar, HiOutlineNewspaper } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../api/users";
 import { useQuery } from "react-query";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { getAllNews } from "../../api/news";
 import { getAllProject } from "../../api/projects";
-import { Spin } from "antd";
+import { Avatar, List, Spin } from "antd";
 
 // const MyDropDown = ({ currentMode }) => (
 //   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -29,7 +29,7 @@ import { Spin } from "antd";
 const Dashboard = () => {
   const [page, setPage] = useState(1);
 
-  const { currentColor, currentMode } = useAdminContext();
+  const { currentColor } = useAdminContext();
   const { currentUser } = useAuthContext();
   const navigate = useNavigate();
 
@@ -82,7 +82,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="">
+    <div>
       <div className="flex flex-wrap ">
         <div className="sm:bg-main-bg bg-white shadow-md dark:text-gray-200 dark:bg-main-dark-bg h-44 rounded-xl w-full p-8 pt-9 bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
@@ -112,7 +112,7 @@ const Dashboard = () => {
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="sm:bg-main-bg bg-white shadow-md h-44 dark:text-gray-200 dark:bg-main-dark-bg  p-4 pt-9 rounded-2xl "
+              className="sm:bg-main-bg flex flex-col items-center bg-white shadow-md h-44 dark:text-gray-200 dark:bg-main-dark-bg  p-5  pt-9 rounded-2xl "
             >
               <button
                 type="button"
@@ -134,53 +134,38 @@ const Dashboard = () => {
       </div>
 
       <div>
-        <div className="sm:bg-main-bg bg-white shadow-md dark:text-gray-200 dark:bg-main-dark-bg p-4 rounded-2xl ">
+        <div className="sm:bg-main-bg bg-white shadow-md dark:text-gray-200 dark:bg-main-dark-bg p-5 rounded-2xl ">
           <div className="flex justify-between">
-            <p className="font-semibold text-xl">Бусад</p>
-            <div className="flex items-center gap-4">
-              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
-                <span>
-                  <GoPrimitiveDot />
-                </span>
-                <span>Expense</span>
-              </p>
+            <p className="font-semibold text-xl">Хэрэглэгчид</p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
               <p className="flex items-center gap-2 text-green-400 hover:drop-shadow-xl">
                 <span>
                   <GoPrimitiveDot />
                 </span>
-                <span>Budget</span>
+                <span>Active</span>
+              </p>
+              <p className="flex items-center gap-2 text-gray-600 hover:drop-shadow-xl">
+                <span>
+                  <GoPrimitiveDot />
+                </span>
+                <span>Inactive</span>
               </p>
             </div>
           </div>
-          <div className="mt-10 flex gap-10 flex-wrap justify-center">
-            <div className=" border-r-1 border-color m-4 pr-10">
-              <div>
-                <p>
-                  <span className="text-3xl font-semibold">$93,438</span>
-                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
-                    23%
-                  </span>
-                </p>
-                <p className="text-gray-500 mt-1">Budget</p>
-              </div>
-              <div className="mt-8">
-                <p className="text-3xl font-semibold">$48,487</p>
-
-                <p className="text-gray-500 mt-1">Expense</p>
-              </div>
-
-              <div className="mt-10">
-                <MyButton
-                  color="white"
-                  bgColor={currentColor}
-                  text="Download Report"
-                  borderRadius="10px"
-                />
-              </div>
-            </div>
-            <div>
-              {/* <Stacked currentMode={currentMode} width="320px" height="360px" /> */}
-            </div>
+          <div className="mt-10 w-full">
+            <List
+              itemLayout="horizontal"
+              dataSource={usersData?.data}
+              renderItem={(user) => (
+                <List.Item>
+                  <List.Item.Meta
+                    avatar={<Avatar src="/images/user2.png" size={"large"} />}
+                    title={<Link to="#">{user?.name}</Link>}
+                    description={user?.email}
+                  />
+                </List.Item>
+              )}
+            />
           </div>
         </div>
       </div>

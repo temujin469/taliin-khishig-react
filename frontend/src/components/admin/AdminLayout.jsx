@@ -48,8 +48,11 @@ function AdminLayout() {
           </Tooltip>
         </div>
         {activeMenu ? (
-          <div className="w-72 z-50 fixed shadow-xl sidebar dark:bg-secondary-dark-bg bg-white ">
-            <Sidebar />
+          <div className="w-full sm:w-72 flex z-50 fixed shadow-xl sidebar">
+            <div className="w-72 bg-white dark:bg-secondary-dark-bg">
+              <Sidebar />
+            </div>
+            <div className="bg-black/50 flex-[1] sm:hidden"></div>
           </div>
         ) : (
           <div className="w-0 dark:bg-secondary-dark-bg">

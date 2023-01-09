@@ -9,7 +9,7 @@ moment.locale("mn");
 export default function NewsCard({ news, color }) {
   return (
     <div className="w-full mb-5">
-      <div className="w-full overflow-hidden h-[210px] rounded-lg border dark:border-[#333]">
+      <div className="w-full overflow-hidden h-[210px] rounded-lg border dark:border-slate-600">
         <img
           alt="Post thumbnail"
           src={news.photo}

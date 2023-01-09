@@ -26,7 +26,7 @@ exports.getProjects = asyncHandler(async (req, res, next) => {
 });
 
 exports.getProject = asyncHandler(async (req, res, next) => {
-  const project = await Project.findById(req.params.id);
+  const project = await Project.findOne({ slug: req.params.id });
 
   if (!project) {
     throw new MyError(req.params.id + " ID-тэй project байхгүй!", 400);
