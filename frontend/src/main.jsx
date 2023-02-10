@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./app.css";
-import "react-quill/dist/quill.snow.css";
 import { Toaster } from "react-hot-toast";
 
 import { QueryClient, QueryClientProvider } from "react-query";

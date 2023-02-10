@@ -5,7 +5,15 @@ const paginate = require("../utils/paginate");
 
 // register
 exports.register = asyncHandler(async (req, res, next) => {
-  const user = await User.create(req.body);
+  const { email, password, name } = req.body;
+  // Тухайн хэрэглэгчийн хайна
+  const userExist = await User.findOne({ email }).select("+password");
+
+  if (!userExist) {
+    throw new MyError("Имэйл аль хэдийн бүртгэгдсэн", 401);
+  }
+
+  await User.create({ email, password, name });
 
   res.status(200).json({
     success: true,

@@ -14,7 +14,9 @@ function ImageUploader({ photo, setPhoto }) {
 
   const onChange = async (imageList, addUpdateIndex) => {
     // data for submit
-    console.log(imageList[0]);
+    // console.log("iamgelist==>", imageList[0]);
+    // console.log("data==>", imageList[0]?.data_url);
+
     setImages(imageList);
     setPhoto(imageList[0]?.data_url);
   };

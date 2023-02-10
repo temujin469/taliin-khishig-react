@@ -4,11 +4,9 @@ import { BsCalendarDate } from "react-icons/bs";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import baseUrl from "../utils/axios";
-import "react-quill/dist/quill.snow.css";
-import parse from "html-react-parser";
+
 import { Alert, Image, Skeleton, Tag } from "antd";
 import catchResponseErr from "../utils/catchResponseErr";
 import Header2 from "../components/Header2";
@@ -33,7 +31,7 @@ function NewsScreen() {
   return (
     <div>
       <Header2 />
-      <div className=" bg-gray-100 pb-10 pt-5">
+      <div className=" bg-gray-100 pb-10 pt-5 selection:bg-primary selection:text-white">
         <div className="mx-4 sm:mx-20 md:mx-10 xl:mx-20">
           <div className="max-w-[1280px] pt-5 mx-auto">
             <div className="lg:grid grid-cols-6 lg:gap-10 space-y-10 md:space-y-0">
@@ -66,7 +64,10 @@ function NewsScreen() {
                       <div className="mb-5">
                         <Image width={"100%"} src={news.photo} />
                       </div>
-                      <div>{parse(news.content)}</div>
+                      <div
+                        className="view ql-editor p-0"
+                        dangerouslySetInnerHTML={{ __html: news.content }}
+                      ></div>
                     </div>
                   )
                 )}

@@ -29,11 +29,24 @@
   @apply font-medium text-[15px] md:text-lg lg:text-xl xl:text-xl text-gray-800;
 }
 
+.ql-editor blockquote {
+  @apply bg-gray-50 border-l-[4px] border-primary p-2;
+}
+/* .ql-editor .ql-align-justify{} */
+
+/* .view ol {
+  @apply list-decimal px-8;
+} */
+
+/* .view .ql-indent-1 {
+  @apply pl-8;
+} */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
-  text-decoration: none;
-  list-style: none;
+  /* text-decoration: none; */
+  /* list-style: none; */
 }

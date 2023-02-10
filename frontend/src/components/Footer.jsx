@@ -4,7 +4,7 @@ import Container from "./Container";
 
 function Footer() {
   return (
-    <footer className="bg-[#353B41]">
+    <footer className="bg-[#353B41] selection:bg-primary selection:text-white">
       <Container>
         <div className="py-4 md:pt-20 sm:py-6">
           <div className="flex xl:flex-row flex-col justify-between gap-8 xl:gap-20 py-10">

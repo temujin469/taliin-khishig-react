@@ -50,7 +50,7 @@ function Header2({ bg }) {
 
   return (
     // <Affix offsetTop={-50}>
-    <div className=" bg-white">
+    <div className=" bg-white select-none">
       <nav className=" shadow-md block mx-auto  w-full md:static md:shadow-none z-20">
         <div className="lg:container mx-auto md:flex justify-end items-center hidden h-[50px] border-b">
           {isAdmin && (
@@ -133,7 +133,7 @@ function Header2({ bg }) {
               </div>
 
               <ul
-                className={`bg-white z-50 duration-300 ease-out md:h-auto overflow-hidden top-[60px] md:bg-transparent text-center md:flex justify-between items-center w-full fixed md:static left-0 ${
+                className={`bg-white px-10 md:px-0 border-t-1 md:border-none duration-300 ease-out md:h-auto overflow-hidden top-[60px] md:bg-transparent md:flex justify-between z-50 w-full absolute md:static left-0 ${
                   open ? "h-full min-h-screen overflow-y-scroll" : "h-0"
                 }`}
               >
@@ -144,7 +144,7 @@ function Header2({ bg }) {
                   placement="bottom"
                   arrow
                 >
-                  <li className="cursor-pointer my-[50px] md:my-0 flex items-center justify-center border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
+                  <li className="cursor-pointer my-[50px] md:my-0 flex items-center justify-between border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
                     <div className="text-slate-800 text-base">About</div>
                     <FiChevronDown className="text-slate-800 text-[19px]" />
                   </li>
@@ -157,7 +157,7 @@ function Header2({ bg }) {
                   placement="bottom"
                   arrow
                 >
-                  <li className="cursor-pointer my-[50px] md:my-0 flex items-center justify-center border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
+                  <li className="cursor-pointer my-[50px] md:my-0 flex items-center justify-between border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
                     <div className="text-slate-800 text-base">Service</div>
                     <FiChevronDown className="text-slate-800 text-[19px]" />
                   </li>

@@ -169,7 +169,7 @@ function Header({ title, description, bgImage, height }) {
               </div>
             </div>
             <ul
-              className={`bg-black/80 duration-300 ease-out md:h-auto overflow-hidden top-[60px] md:bg-transparent text-center md:flex justify-between items-center w-full fixed md:static left-0 ${
+              className={`bg-white px-10 md:px-0 border-t-1 md:border-none duration-300 ease-out md:h-auto overflow-hidden top-[60px] md:bg-transparent md:flex justify-between w-full absolute md:static left-0 ${
                 open ? "h-full min-h-screen overflow-y-scroll" : "h-0"
               }`}
             >
@@ -180,9 +180,9 @@ function Header({ title, description, bgImage, height }) {
                 placement="bottom"
                 arrow
               >
-                <li className="cursor-pointer my-[50px] md:my-0 flex items-center justify-center border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
-                  <div className="text-white">About</div>
-                  <FiChevronDown className="text-white text-[19px]" />
+                <li className="cursor-pointer justify-between my-[50px] md:my-0 flex items-center border-y-4 transition-all duration-200 py-1 ease-in border-transparent md:hover:border-b-[#dd5900]">
+                  <div className="md:text-white text-gay-800">About</div>
+                  <FiChevronDown className="md:text-white text-gray-800 text-[19px]" />
                 </li>
               </Dropdown>
 
@@ -193,29 +193,29 @@ function Header({ title, description, bgImage, height }) {
                 placement="bottom"
                 arrow
               >
-                <li className="cursor-pointer my-[50px] md:my-0 flex items-center justify-center border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
-                  <div className="text-white">Service</div>
-                  <FiChevronDown className="text-white text-[19px]" />
+                <li className="cursor-pointer justify-between my-[50px] md:my-0 flex items-center border-y-4 transition-all duration-200 py-1 ease-in border-transparent md:hover:border-b-[#dd5900]">
+                  <div className="md:text-white text-gray-800">Service</div>
+                  <FiChevronDown className="md:text-white text-gray-800 text-[19px]" />
                 </li>
               </Dropdown>
 
-              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
-                <Link to="/projects" className=" text-white">
+              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent md:hover:border-b-[#dd5900]">
+                <Link to="/projects" className="text-gray-800 md:text-white">
                   Project
                 </Link>
               </li>
-              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
-                <Link to="/career" className=" text-white">
+              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent md:hover:border-b-[#dd5900]">
+                <Link to="/career" className="text-gray-800 md:text-white">
                   Careers
                 </Link>
               </li>
-              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
-                <Link to="/news" className=" text-white">
+              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent md:hover:border-b-[#dd5900]">
+                <Link to="/news" className="text-gray-800 md:text-white">
                   News
                 </Link>
               </li>
-              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent hover:border-b-[#dd5900]">
-                <Link to="/contact" className=" text-white">
+              <li className="my-[50px] md:my-0 border-y-4 transition-all duration-200 py-1 ease-in border-transparent md:hover:border-b-[#dd5900]">
+                <Link to="/contact" className="text-gray-800 md:text-white">
                   Contact us
                 </Link>
               </li>
@@ -224,7 +224,7 @@ function Header({ title, description, bgImage, height }) {
         </nav>
         {/* <!-- navbar end --> */}
         <div className={!title && !description ? "hidden" : undefined}>
-          <div className="text-white relative top-[60vh] mt-[60px] md:mt-0 md:static md:h-[calc(80vh-150px)] flex flex-col-reverse">
+          <div className="text-gray-800 md:text-white relative top-[60vh] mt-[60px] md:mt-0 md:static md:h-[calc(80vh-150px)] flex flex-col-reverse">
             <div className="bg-gradient-to-br from-[#e77021] to-[#f5b062] md:bg-none pb-32 pt-10 md:pb-16">
               <Container>
                 <p className="text-3xl font-semibold mb-5 md:mb-5">{title}</p>

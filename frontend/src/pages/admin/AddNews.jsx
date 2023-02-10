@@ -13,6 +13,7 @@ import "react-quill/dist/quill.snow.css";
 import catchResponseErr from "../../utils/catchResponseErr";
 import ImageUploader from "../../components/ImageUploader";
 import { addNews } from "../../api/news";
+// import "../../editor.css";
 
 const AddNews = () => {
   const [title, setTitle] = useState("");
